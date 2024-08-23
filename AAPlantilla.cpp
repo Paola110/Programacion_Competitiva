@@ -24,7 +24,7 @@ ios::sync_with_stdio(0);cin.tie(0);
 
     while(tc--){
         cin>>n;
-        
+
     }
 return 0;
 }
