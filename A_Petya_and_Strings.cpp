@@ -21,12 +21,26 @@ ios::sync_with_stdio(0);cin.tie(0);
     //cin>>tc;
 
     string primera_string, segunda_string;
-    int comparacion;
 
     while(tc--){
         cin>>primera_string>>segunda_string;
-        tolower(primera_string[1]);
-        tolower(segunda_string[1]);
+
+        for (int i = 0; i < primera_string.size(); i++){
+            primera_string[i] = tolower(primera_string[i]);
+        }
+        for (int i = 0; i < segunda_string.size(); i++){
+            segunda_string[i] = tolower(segunda_string[i]);
+        }
+
+        if (primera_string < segunda_string){
+            cout<<"-1"<<endl;
+        }
+        else if (primera_string > segunda_string){
+            cout<<"1"<<endl;
+        }
+        else if (primera_string == segunda_string){
+            cout<<"0"<<endl;
+        }
 
     }
 return 0;
