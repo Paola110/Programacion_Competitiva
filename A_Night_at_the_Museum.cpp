@@ -21,25 +21,27 @@ ios::sync_with_stdio(0);cin.tie(0);
     //cin>>tc;
 
     string palabra;
-    int vueltas=0, posicion=0, indice=0;
+    int vueltas=0, posicion=0, indice=0, posicion_anterior=0;
     string letras = "abcdefghijklmnopqrstuvwxyz";//25
 
     while(tc--){
         cin>>palabra;
         for (int i = 0; i < palabra.size(); i++){
             indice = letras.find(palabra[i]);
-            cout<<endl;
 
-            cout<<indice<<" ";
+            cout<<indice<<" "<< posicion_anterior<<" ";
 
-            if ( abs(24-indice) < indice ){
-                indice = abs(24-indice);
+            posicion = indice+posicion_anterior;
+
+            if (posicion>=25){
+                posicion -= 24;
             }
-
-            posicion += indice;
 
             cout<<posicion<<" ";
 
+            cout<<endl;
+
+            posicion_anterior = indice;
             vueltas += posicion;
         }
         cout<<endl<<vueltas;
