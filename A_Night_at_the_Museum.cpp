@@ -21,30 +21,33 @@ ios::sync_with_stdio(0);cin.tie(0);
     //cin>>tc;
 
     string palabra;
-    int vueltas=0, posicion=0, indice=0, posicion_anterior=0;
-    string letras = "abcdefghijklmnopqrstuvwxyz";//25
+    string letras = "abcdefghijklmnopqrstuvwxyz";//26
 
     while(tc--){
         cin>>palabra;
+        int posicion=0, posicion1=1, posicion2=1, posicion_final=0;
+
         for (int i = 0; i < palabra.size(); i++){
-            indice = letras.find(palabra[i]);
 
-            cout<<indice<<" "<< posicion_anterior<<" ";
+            posicion = letras.find(palabra[i])+1;
+            posicion2 = posicion + posicion1;
 
-            posicion = indice+posicion_anterior;
+            cout<<posicion1<<" ";
 
-            if (posicion>=25){
-                posicion -= 24;
+            if (posicion2 > 26){
+
+                posicion_final += posicion2 - 26;
+                posicion1 = posicion2-26;
+
+            } else {
+                posicion_final += posicion - posicion1;
+                posicion1 = posicion-posicion1;
             }
 
-            cout<<posicion<<" ";
+            cout<<palabra[i]<<" "<<posicion_final<<endl;
 
-            cout<<endl;
-
-            posicion_anterior = indice;
-            vueltas += posicion;
         }
-        cout<<endl<<vueltas;
     }
+
 return 0;
 }
