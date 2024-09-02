@@ -25,28 +25,19 @@ ios::sync_with_stdio(0);cin.tie(0);
 
     while(tc--){
         cin>>palabra;
-        int posicion=0, posicion1=1, posicion2=1, posicion_final=0;
-
-        for (int i = 0; i < palabra.size(); i++){
-
-            posicion = letras.find(palabra[i])+1;
-            posicion2 = posicion + posicion1;
-
-            cout<<posicion1<<" ";
-
-            if (posicion2 > 26){
-
-                posicion_final += posicion2 - 26;
-                posicion1 = posicion2-26;
-
+        int distancia1 = 0, distancia2 = 0, indice1 = 0, indice2 = 0, suma_distancias = 0 ;
+        for (int i=0; i<palabra.size() ; i++){
+            indice2 = letras.find(palabra[i]);
+            distancia1 = abs(indice1-indice2);
+            distancia2 = letras.size() - distancia1;
+            indice1 = indice2;
+            if ( distancia1 < distancia2){
+                suma_distancias += distancia1;
             } else {
-                posicion_final += posicion - posicion1;
-                posicion1 = posicion-posicion1;
+                suma_distancias += distancia2;
             }
-
-            cout<<palabra[i]<<" "<<posicion_final<<endl;
-
         }
+        cout<<suma_distancias;
     }
 
 return 0;
