@@ -32,7 +32,7 @@ ios::sync_with_stdio(0);cin.tie(0);
             mox = k; moy = k;
 
             while (!target){
-                
+                if ((pox+mox)<=x) && (poy+moy)<=y)
             }
         }
         
